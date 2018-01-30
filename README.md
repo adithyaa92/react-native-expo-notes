@@ -30,12 +30,64 @@ Download [the GitHub repo](https://github.com/adrianhall/react-native-expo-notes
 5. Open a terminal in the new directory.  Run `yarn install`.
 6. Run `yarn start` to start the app.
 
-If you have XCode or Android Studio installed, you can run Expo on the emulator.  If not, you can run Expo on your own phone.
+If you have XCode or Android Studio installed, you can run Expo on the emulator.  Use `yarn run ios` or `yarn run android` for this.  It works more consistently if the emulator or simulator is already running.  If you do not have XCode or Android Studio installed, you can run Expo on your own phone using `yarn start`.
 
 ## Add Analytics
 
 1. Change directory to your project directory.
 2. Run `awsmobile init`.
-  * When prompted, enter `src` for the source dir
+  * Where is your project's source directory: (src) **src**
+  * Where is your project's distribution directory that stores build artifacts: (build) _Enter_
+  * What is your project's build command: (npm run-script build) _Enter_
+  * What is your project's start command for local test run: (npm run-script start) **yarn start**
+  * What awsmobile projexct name would you like to use: (...) **notes-app**
+3. Run `yarn add aws-amplify-react-native`
+4. Add the following code to the `App.js` file (under the other imports):
+
+```
+import Amplify from 'aws-amplify-react-native';
+import awsconfig from './src/aws-exports';
+
+Amplify.configure(awsconfig);
+```
+
+5. Run the application again.
+6. Run `awsmobile console`:
+  * Click **Analytics** in the top right corner.
+  * Click **Analytics** in the top left corner (side menu).
+  * Validate that there is one endpoint recorded.
+
+Add custom events to your app.  In this section, we add an "add-note" and "delete-note" event when those events happen in your app:
+
+1. Edit `./src/screens/NoteListScreen.js`.  At the top of the file, add the following import:
+
+```
+import { Analytics } from 'aws-amplify-react-native';
+```
+
+2. Edit the `onAddNote()` method to be the following:
+
+```
+    static onAddNote(navigate) {
+        Analytics.record('add-note');
+        navigate('details', { noteId: uuid.v4() });
+    }
+```
+
+3. Edit the `onDeleteNote()` method to be the following:
+
+```
+    onDeleteNote(item) {
+        Analytics.record('delete-note');
+        this.props.deleteNote(item.noteId);
+    }
+```
+
+4. Run the app again.  Make some changes (add/delete notes).  Then view the analytics again.  In the **Events** page, you should see the appropriate events.  (You must refresh the page to get the new events to show up by name).
+
+
+
+
+
 
 

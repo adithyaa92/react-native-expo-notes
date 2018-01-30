@@ -15,6 +15,7 @@ import Swipeout from 'react-native-swipeout';
 import Loading from './Loading';
 import theme from '../theme';
 import uuid from 'uuid';
+import Amplify from 'aws-amplify-react-native';
 
 // BEGIN-REDUX
 import { connect } from 'react-redux';
@@ -153,6 +154,7 @@ class NoteList extends React.Component {
      * @memberof NoteList
      */
     static onAddNote(navigate) {
+        Analytics.record('add-note');
         navigate('details', { noteId: uuid.v4() });
     }
 
@@ -201,6 +203,7 @@ class NoteList extends React.Component {
      * @memberof NoteList
      */
     onDeleteNote(item) {
+        Analytics.record('delete-note');
         this.props.deleteNote(item.noteId);
     }
 

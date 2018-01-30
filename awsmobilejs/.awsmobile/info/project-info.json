@@ -1,0 +1,22 @@
+{
+	"ProjectName": "react-native-expo-notes",
+	"ProjectPath": "/Users/adrianha/GitHub/adrianhall/react-native-expo-notes",
+	"SourceDir": "src",
+	"DistributionDir": "build",
+	"BuildCommand": "npm run-script build",
+	"StartCommand": "yarn start",
+	"InitializationTime": "2018-01-30-09-39-18",
+	"LastConfigurationTime": "2018-01-30-09-40-58",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "",
+	"LastPublishTime": "",
+	"BackendFormat": "yml",
+	"BackendLastBuildTime": "",
+	"BackendLastUpdateTime": "",
+	"BackendLastUpdateSuccessful": false,
+	"BackendProjectID": "5c4a5374-7447-4552-bca9-6ee32887a8ce",
+	"BackendProjectName": "notes-app",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/5c4a5374-7447-4552-bca9-6ee32887a8ce/build",
+	"BackendProjectCreationTime": "2018-01-30T17:41:20.175Z",
+	"BackendProjectLastUpdatedTime": "2018-01-30T17:41:20.175Z"
+}

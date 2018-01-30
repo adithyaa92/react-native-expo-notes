@@ -19,6 +19,8 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "aws-amplify": "^0.1.0",
+    "aws-amplify-react-native": "^0.1.24",
     "color": "^3.0.0",
     "expo": "^25.0.0",
     "flux-standard-action": "^2.0.1",
