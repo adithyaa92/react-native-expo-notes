@@ -5,12 +5,12 @@ import { PersistGate } from 'redux-persist/es/integration/react';
 import { navigatorConfig } from './src/screens';
 import { persistor, store } from './src/redux/store';
 
-import Amplify from 'aws-amplify-react-native';
+import Amplify, { withAuthenticator } from 'aws-amplify-react-native';
 import awsconfig from './src/aws-exports'
 
 Amplify.configure(awsconfig);
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     const Navigator = StackNavigator(navigatorConfig);
 
@@ -24,3 +24,4 @@ export default class App extends React.Component {
   }
 };
 
+export default withAuthenticator(App);

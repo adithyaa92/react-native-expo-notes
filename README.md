@@ -85,6 +85,29 @@ import { Analytics } from 'aws-amplify-react-native';
 
 4. Run the app again.  Make some changes (add/delete notes).  Then view the analytics again.  In the **Events** page, you should see the appropriate events.  (You must refresh the page to get the new events to show up by name).
 
+## Add Authentication
+
+1. Run `awsmobile user-signin enable`.
+2. Run `awsmobile pushy`.
+3. Replace the Amplify import in `App.js` with the following:
+
+```
+import Amplify, { withAuthenticator } from 'aws-amplify-react-native';
+```
+
+4.  Replace the `export default` line at the bottom of `App.js` with the following:
+
+```
+export default withAuthenticator(App);
+```
+
+5. Run the app.
+
+You will be prompted with the username/password prompt.  You can sign up first, then use the same information to sign in.  Also, check the Analytics - you will now see 1 daily active user.
+
+
+
+
 
 
 
