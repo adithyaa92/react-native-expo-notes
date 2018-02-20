@@ -45,7 +45,7 @@ If you have XCode or Android Studio installed, you can run Expo on the emulator.
 4. Add the following code to the `App.js` file (under the other imports):
 
 ```
-import Amplify from 'aws-amplify-react-native';
+import Amplify from 'aws-amplify';
 import awsconfig from './src/aws-exports';
 
 Amplify.configure(awsconfig);
@@ -62,7 +62,7 @@ Add custom events to your app.  In this section, we add an "add-note" and "delet
 1. Edit `./src/screens/NoteListScreen.js`.  At the top of the file, add the following import:
 
 ```
-import { Analytics } from 'aws-amplify-react-native';
+import { Analytics } from 'aws-amplify';
 ```
 
 2. Edit the `onAddNote()` method to be the following:
@@ -92,7 +92,8 @@ import { Analytics } from 'aws-amplify-react-native';
 3. Replace the Amplify import in `App.js` with the following:
 
 ```
-import Amplify, { withAuthenticator } from 'aws-amplify-react-native';
+import Amplify from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react-native';
 ```
 
 4.  Replace the `export default` line at the bottom of `App.js` with the following:
