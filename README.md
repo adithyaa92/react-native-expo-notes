@@ -88,7 +88,7 @@ import { Analytics } from 'aws-amplify';
 ## Add Authentication
 
 1. Run `awsmobile user-signin enable`.
-2. Run `awsmobile pushy`.
+2. Run `awsmobile push`.
 3. Replace the Amplify import in `App.js` with the following:
 
 ```
